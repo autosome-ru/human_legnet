@@ -49,18 +49,7 @@ class TrainSeqDatasetProb(Dataset):
         return self.totensor(x)
     
     def __getitem__(self, i):
-        """
-        Output
-        ----------
-        X: torch.Tensor    
-            Create one-hot encoding tensor with reverse and singleton channels if required.
-        probs: np.ndarray
-            Given a measured expression, we assume that the real expression is normally distributed
-            with mean=`bin` and sd=`shift`. 
-            Resulting `probs` vector contains probabilities that correspond to each class (bin).     
-        bin: float 
-            Training expression value
-        """
+
         seq = self.ds.seq.values[i]
         
         if self.use_shift:

@@ -57,7 +57,7 @@ class LitModel(pl.LightningModule):
         lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, # type: ignore
                                                         max_lr=self.tr_cfg.max_lr ,
                                                         three_phase=False, 
-                                                        total_steps=self.trainer.estimated_stepping_batches,
+                                                        total_steps=self.trainer.estimated_stepping_batches, # type: ignore
                                                         pct_start=0.3,
                                                         cycle_momentum =False)
         

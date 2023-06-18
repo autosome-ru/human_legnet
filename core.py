@@ -12,10 +12,6 @@ from lightning.pytorch.callbacks import ModelCheckpoint
 from pathlib import Path 
 
 cell_types = ['HepG2', 'K562', 'WTC11']
-
-# '/home/penzard/human_prj_dima/models_paper/{cell_type}'
-# /home/penzard/human_prj_dima/data/{cell_type}_clean_vikram_folds_averaged.tsv
-# /home/penzard/human_prj_dima/data/K562_clean_vikram_folds_averaged.tsv
 cell_type = cell_types[2]
 
 
@@ -36,6 +32,9 @@ general.add_argument("--device",
 general.add_argument("--num_workers",
                      type=int, 
                      default=8)
+general.add_argument("--fraction",
+                     type=float,
+                    default=1.0)
 general.add_argument("--seed",
                      type=int,
                      default=777)
@@ -131,6 +130,8 @@ model_dir = Path(train_cfg.model_dir)
 model_dir.mkdir(exist_ok=True,
                 parents=True)
 
+train_cfg.dump()
+
 torch.set_float32_matmul_precision('medium') # type: ignore 
 
 for test_fold in range(1, 11):
@@ -183,4 +184,4 @@ for test_fold in range(1, 11):
                                model, 
                                data,
                                save_dir=dump_dir, 
-                               pref="averaged_new_format")
+                               pref="new_format")
