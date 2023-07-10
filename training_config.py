@@ -3,7 +3,7 @@ import sys
 import torch.nn as nn
 
 
-from model import LegNet
+from lib.human_legnet.model import LegNet
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
@@ -30,12 +30,12 @@ class TrainingConfig:
     valid_batch_size: int
     num_workers: int
     
-    def __post_init__(self):
-        self.check_params()
-        model_dir = Path(self.model_dir)
-        model_dir.mkdir(exist_ok=True,
-                        parents=True)
-        self.dump()
+    # def __post_init__(self):
+    #     self.check_params()
+    #     model_dir = Path(self.model_dir)
+    #     model_dir.mkdir(exist_ok=True,
+    #                     parents=True)
+    #     self.dump()
         
     
     def check_params(self): 

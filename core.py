@@ -4,10 +4,10 @@ import lightning.pytorch as pl
 
 
 
-from datamodule import SeqDataModule
-from test_predict import save_predict
-from trainer import LitModel, TrainingConfig
-from utils import set_global_seed
+from lib.human_legnet.datamodule import SeqDataModule
+from lib.human_legnet.test_predict import save_predict
+from lib.human_legnet.trainer import LitModel, TrainingConfig
+from lib.human_legnet.utils import set_global_seed
 from lightning.pytorch.callbacks import ModelCheckpoint
 from pathlib import Path 
 

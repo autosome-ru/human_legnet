@@ -3,7 +3,7 @@ import torch
 import pandas as pd
 import lightning.pytorch as pl
 
-from datamodule import SeqDataModule
+from lib.human_legnet.datamodule import SeqDataModule
 from pathlib import Path
 
 

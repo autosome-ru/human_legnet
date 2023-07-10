@@ -3,10 +3,10 @@ import torch
 import torch.nn as nn
 
 
-from model import initialize_weights
+from lib.human_legnet.model import initialize_weights
 from torchmetrics import PearsonCorrCoef
 
-from training_config import TrainingConfig
+from lib.human_legnet.training_config import TrainingConfig
 
 class LitModel(pl.LightningModule):
     def __init__(self, tr_cfg: TrainingConfig):

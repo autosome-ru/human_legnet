@@ -2,9 +2,9 @@ import lightning.pytorch as pl
 import pandas as pd
 
 from torch.utils.data import DataLoader
-from dataset import TrainSeqDatasetProb, TestSeqDatasetProb
+from lib.human_legnet.dataset import TrainSeqDatasetProb, TestSeqDatasetProb
 
-from training_config import TrainingConfig
+from lib.human_legnet.training_config import TrainingConfig
 
 class SeqDataModule(pl.LightningDataModule):
     def __init__(self, 
