@@ -6,6 +6,7 @@ import torch.nn as nn
 from model import LegNet
 from dataclasses import dataclass, asdict
 from pathlib import Path
+from dataclasses import InitVar
 
 @dataclass
 class TrainingConfig: 
@@ -29,13 +30,15 @@ class TrainingConfig:
     train_batch_size: int
     valid_batch_size: int
     num_workers: int
+    training: InitVar[bool] 
     
-    def __post_init__(self):
+    def __post_init__(self, training: bool):
         self.check_params()
         model_dir = Path(self.model_dir)
-        model_dir.mkdir(exist_ok=True,
-                        parents=True)
-        self.dump()
+        if training:
+            model_dir.mkdir(exist_ok=True,
+                            parents=True)
+            self.dump()
         
     
     def check_params(self): 
@@ -67,9 +70,10 @@ class TrainingConfig:
     
           
     @classmethod
-    def from_json(cls, path: Path | str) -> 'TrainingConfig':
+    def from_json(cls, path: Path | str, training: bool = False) -> 'TrainingConfig':
         with open(path, 'r') as inp:
             dt = json.load(inp)
+        dt['training'] = training
         return cls.from_dict(dt)
   
     @property

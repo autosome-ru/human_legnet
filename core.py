@@ -7,7 +7,7 @@ import lightning.pytorch as pl
 from datamodule import SeqDataModule
 from test_predict import save_predict
 from trainer import LitModel, TrainingConfig
-from utils import set_global_seed
+from utils import set_global_seed, parameter_count
 from lightning.pytorch.callbacks import ModelCheckpoint
 from pathlib import Path 
 
@@ -100,6 +100,7 @@ args = parser.parse_args()
 
 train_cfg = TrainingConfig(
     # general options 
+    training=True,
     model_dir=args.model_dir,
     data_path=args.data_path,
     num_workers = args.num_workers,
@@ -141,6 +142,7 @@ for test_fold in range(1, 11):
         set_global_seed(train_cfg.seed)
         
         model = LitModel(tr_cfg=train_cfg)
+        print(parameter_count(model))
 
         data = SeqDataModule(val_fold=val_fold,
                              test_fold=test_fold,

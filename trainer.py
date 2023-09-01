@@ -46,7 +46,10 @@ class LitModel(pl.LightningModule):
                  on_epoch=True)
         
     def predict_step(self, batch, _):
-        x, _ = batch 
+        if isinstance(batch, (tuple, list)):
+            x, _ = batch 
+        else:
+            x = batch
         y_hat = self.model(x)
         return y_hat
         
