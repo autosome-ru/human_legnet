@@ -41,4 +41,9 @@ Example command:
 ```
 python fasta_predict.py --config <model config> --model <model checkpoint> --fasta <path to fsata> --out_path <out path> --device 0 
 ```
-Please note, that this is a fairly basic wrapper and the input sequences must have the same length.
+
+Please note, that this is a fairly basic wrapper, and this version of LegNet is optimized to sequence length of 230bp.
+LegNet technically will work for different sequence lengths as it uses global average pooling. 
+However, if a sequence size  differs from 230nt significantly, the resulting performance will be likely rather low. 
+Due to the per-batch prediction, it is impossible to predict scores for sequences of different sizes if the batch size is not equal to 1.
+
