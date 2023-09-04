@@ -15,9 +15,9 @@ class FastaDataset(Dataset):
         return [seq.id for seq in self.seqs]
     
     def raw_seqs(self) -> list[str]:
-        return [self[i] for i in range(0, len(self))]
+        return [self._get_seq(i) for i in range(0, len(self))]
     
-    def __getitem__(self, idx):
+    def _get_seq(self, idx):
         seq = self.seqs[idx]
         seq = seq.seq._data
         if isinstance(seq, bytes):
@@ -25,8 +25,11 @@ class FastaDataset(Dataset):
         
         if self.reverse:
             seq = reverse_complement(seq)
+        return seq
+    
+    def __getitem__(self, idx):
+        seq = self._get_seq(idx)
         seq = encode_seq(seq)
-        
         return seq
     
     def __len__(self) -> int:
