@@ -1,7 +1,8 @@
 # Summary
 
 This repository contains the code to reproduce the results of MRPA-LegNet, a variant of LegNet [doi:10.1093/bioinformatics/btad457] specifically modified and optimized for predicting gene expression from human massive parallel reporter assays in K562, HepG2, and WTC11 cell lines.
-Model training and cross-validation
+
+# Model training and cross-validation
 
 10-fold cross-validation was used for the model training and testing. The respective script is python vikram/human_legnet/core.py which be used as follows:
 
