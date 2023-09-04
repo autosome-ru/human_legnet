@@ -29,14 +29,16 @@ The datasets are available in the repository, see the datasets/asb and datasets/
 
 The scripts compare the predicted and the real effect direction of single-nucleotide variants for the alternative against the reference allele at allele-specific regulatory sites. That is whether the reference or the alternative allele is preferable for transcription factor binding or for chromatin accessibility. 
 
-The post-processing of predictions is performed with Jupyter-Notebook variant_annotation.ipynb
+The post-processing of predictions is performed with Jupyter-Notebook variant_annotation.ipynb.
 
 Estimating the performance metrics (Fisher's exact test, R-squared calculation) for the processed predictions is performed using R script analyze_concordance.R
-Performing LegNet predictions for a user-supplied fasta
-It is possible to run a LegNet model against a user-supplied fasta to obtain predictions for each sequence in it. This can be achieved with fasta_predict.py
+
+# Performing LegNet predictions for a user-supplied fasta
+
+It is possible to run a LegNet model against a user-supplied fasta to obtain predictions for each sequence in it. This can be achieved with fasta_predict.py.
 
 Example command:
 ```
 python fasta_predict.py --config <model config> --model <model checkpoint> --fasta <path to fsata> --out_path <out path> --device 0 
 ```
-Please note, that this is a fairly basic wrapper and the input sequences must have the same length
+Please note, that this is a fairly basic wrapper and the input sequences must have the same length.
