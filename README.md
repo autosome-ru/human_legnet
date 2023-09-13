@@ -39,7 +39,7 @@ It is possible to run a LegNet model against a user-supplied fasta to obtain pre
 
 Example command:
 ```
-python fasta_predict.py --config <model config> --model <model checkpoint> --fasta <path to fsata> --out_path <out path> --device 0 
+python fasta_predict.py --config <model config> --model <model checkpoint> --fasta <path to fasta> --out_path <out path> --device 0 
 ```
 
 Please note, that this is a fairly basic wrapper, and this version of LegNet is optimized to sequence length of 230bp.
