@@ -7,6 +7,7 @@ Please install all requirements with `environment.txt` or `environment.yml` with
 ```
 cd human_legnet
 mamba env create -f envs/environment.yml 
+mamba activate legnet
 ```
 
 # Model training and cross-validation
