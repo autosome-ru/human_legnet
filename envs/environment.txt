@@ -1,8 +1,6 @@
 # packages in environment at /home/penzard/miniconda3/envs/legnet:
 #
 # Name                    Version                   Build  Channel
-_libgcc_mutex             0.1                        main  
-_openmp_mutex             5.1                       1_gnu  
 abseil-cpp                20211102.0           h27087fc_1    conda-forge
 absl-py                   1.4.0              pyhd8ed1ab_0    conda-forge
 aiohttp                   3.8.4                    pypi_0    pypi
