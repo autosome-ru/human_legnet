@@ -1,11 +1,11 @@
 # Summary
 
-This repository contains the code to reproduce the results of MRPA-LegNet, a variant of LegNet [doi:10.1093/bioinformatics/btad457] 
-[https://github.com/autosome-ru/LegNet/] that was specifically modified and optimized for predicting gene expression from human massive parallel reporter assays 
+This repository contains the code to reproduce the results of MRPA-LegNet, a variant of LegNet ([Paper](https://doi.org/10.1093/bioinformatics/btad457),
+[Repo](https://github.com/autosome-ru/LegNet/)) that was specifically modified and optimized for predicting gene expression from human massive parallel reporter assays 
 performed with human K562, HepG2, and WTC11 cell lines.
 
 # Setting up environment
-Please install all requirements with `environment.txt` or `environment.yml` with `conda` (see [https://conda.io/projects/conda/en/latest/user-guide/install/index.html]) `mamba` (see [https://mamba.readthedocs.io/en/latest/mamba-installation.html]):
+Please install all requirements with `environment.txt` or `environment.yml` with `conda` (see [Docs](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)) `mamba` (see [Docs](https://mamba.readthedocs.io/en/latest/mamba-installation.html)):
 ```
 cd human_legnet
 mamba env create -f envs/environment.yml 
@@ -26,7 +26,7 @@ This script was also used to test the impact of data augmentation on the model p
 
 # Assessing LegNet performance in predicting the allele-specific events
 
-To get predictions of all cross-validation models we used asb_predict.py for ADASTRA datasets (allele-specific transcription factor binding, https://adastra.autosome.org) and coverage_predict.py for UDACHA (allele-specific chromatin accessibility, https://udacha.autosome.org) datasets.
+To get predictions of all cross-validation models we used asb_predict.py for [ADASTRA](https://adastra.autosome.org) (allele-specific transcription factor binding) and coverage_predict.py for [UDACHA](https://udacha.autosome.org) (allele-specific chromatin accessibility) datasets.
 
 Command-line format:
 ```
