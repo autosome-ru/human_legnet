@@ -3,7 +3,7 @@
 This repository contains the code to reproduce the results of MRPA-LegNet, a variant of LegNet [doi:10.1093/bioinformatics/btad457] specifically modified and optimized for predicting gene expression from human massive parallel reporter assays in K562, HepG2, and WTC11 cell lines.
 
 # Setting up environment
-Please install all requirements with `environment.txt` or `environment.yml` with `conda` (documentation[https://conda.io/projects/conda/en/latest/user-guide/install/index.html]) `mamba` (documentation)[https://mamba.readthedocs.io/en/latest/mamba-installation.html]:
+Please install all requirements with `environment.txt` or `environment.yml` with `conda` (see [https://conda.io/projects/conda/en/latest/user-guide/install/index.html]) `mamba` (see [https://mamba.readthedocs.io/en/latest/mamba-installation.html]):
 ```
 cd human_legnet
 mamba env create -f envs/environment.yml 
