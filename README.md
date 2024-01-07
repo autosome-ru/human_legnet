@@ -57,3 +57,6 @@ LegNet technically will work for different sequence lengths as it uses global av
 However, if a sequence size  differs from 230 significantly, the resulting performance will be likely rather low. 
 Also, due to the per-batch prediction, it is impossible to predict scores for sequences of different sizes if the batch size is not equal to 1.
 
+# License
+
+MRPA-LegNet and the original LegNet are distributed under MIT License.
