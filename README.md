@@ -21,6 +21,12 @@ Please refer to the envs/environment.yml  for technical details such as installe
 
 MPRA-LegNet was successfully tested on various Ubuntu LTS releases (including but not limited to 20.04.3).
 
+## Software and hardware requirements
+
+To train model from the publication you'll need 7GB GPU memory and 32 GB CPU.
+
+
+
 # Model training and cross-validation
 
 10-fold cross-validation was used for the model training and testing. The respective script is python vikram/human_legnet/core.py which be used as follows:
