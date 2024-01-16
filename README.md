@@ -4,13 +4,22 @@ This repository contains the code to reproduce the results of MRPA-LegNet, a var
 [Repo](https://github.com/autosome-ru/LegNet/)) that was specifically modified and optimized for predicting gene expression from human massive parallel reporter assays 
 performed with human K562, HepG2, and WTC11 cell lines.
 
-# Setting up environment
+# Installation
+
+## Setting up environment
+
 Please install all requirements with `environment.txt` or `environment.yml` with `conda` (see [Docs](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)) `mamba` (see [Docs](https://mamba.readthedocs.io/en/latest/mamba-installation.html)):
 ```
 cd human_legnet
 mamba env create -f envs/environment.yml 
 mamba activate legnet
 ```
+
+Please refer to the envs/environment.yml  for technical details such as installed packages and version numbers.
+
+## Software dependencies and operating systems
+
+MPRA-LegNet was successfully tested on various Ubuntu LTS releases (including but not limited to 20.04.3).
 
 # Model training and cross-validation
 
@@ -22,7 +31,32 @@ python core.py --model_dir <target dir to save the models checkpoint files> --da
 
 Please use --help for more details regarding.
 
-This script was also used to test the impact of data augmentation on the model performance, e.g, adding --use_reverse_channel will add the respective channel to the input. In the study, the shift was set to the size of the forward adapter (21 bp).
+This script was also used to test the impact of data augmentation on the model performance, e.g, adding --use_reverse_channel will add the respective channel to the input. 
+
+In the study, the shift was set to the size of the forward adapter (21 bp).
+
+The data used to train model is available at `datasets/original` dir. 
+Files with name format `<cell_line>.tsv` were used for training and files with name format `<cell_line>_averaged.tsv` were used for accessing model final performance. 
+
+Trained models can be dowloaded [here](https://disk.yandex.ru/d/ABO-qfuYuuqCww)
+
+## Demo example
+
+To train model only for one cross-validation split  (1st fold -- test, 2st fold -- validation) use flag `--demo`
+
+```
+python core.py --model_dir demo_K562 --data_path datasets/original/K562.tsv --epoch_num 25 --use_shift --reverse_augment --demo
+```
+
+This command will take about 5 minutes to complete on 1 NVIDIA GeForce RTX 3090 using 8 CPUs. 
+
+It will produce dir demo with:
+
+1. `config.json` -- model config required to run predictions
+2. `model_2_1` containing model weights `lightning_logs/version_0/checkpoints/last_model-epoch=24.ckpt` and predictions for test fold in file `predictions_new_format.tsv`
+
+File `predictions_new_format.tsv` contains predictions for forward and reverse sequence orientation in columns `forw_pred` and `rev_pred` respectively   
+
 
 # Assessing LegNet performance in predicting the allele-specific events
 

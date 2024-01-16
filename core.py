@@ -38,7 +38,8 @@ general.add_argument("--fraction",
 general.add_argument("--seed",
                      type=int,
                      default=777)
-
+general.add_argument("--demo",
+                     action="store_true")
 aug = parser.add_argument_group('aug args', 
                                 'augmentation arguments')
 aug.add_argument("--reverse_augment", 
@@ -133,16 +134,24 @@ model_dir.mkdir(exist_ok=True,
 
 train_cfg.dump()
 
-torch.set_float32_matmul_precision('medium') # type: ignore 
+torch.set_float32_matmul_precision('medium') # type: ignore
 
-for test_fold in range(1, 11):
-    for val_fold in range(1, 11):
+
+if args.demo:
+    test_fold_range = range(1, 2)
+    val_fold_range = range(2, 3)
+else:
+    test_fold_range = range(1, 11)
+    val_fold_range = range(1, 11)
+
+for test_fold in test_fold_range:
+    for val_fold in val_fold_range:
         if test_fold == val_fold:
             continue
         set_global_seed(train_cfg.seed)
         
         model = LitModel(tr_cfg=train_cfg)
-        print(parameter_count(model))
+        print("Model parameters: ", parameter_count(model).item())
 
         data = SeqDataModule(val_fold=val_fold,
                              test_fold=test_fold,
