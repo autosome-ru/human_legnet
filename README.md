@@ -35,7 +35,7 @@ To train model from the publication you'll need 7GB GPU memory and 32 GB CPU.
 python core.py --model_dir <target dir to save the models checkpoint files> --data_path <experiment data tables used in study> --epoch_num <epochnum> --use_shift --reverse_augment
 ```
 
-Please use --help for more details regarding.
+Please use --help for more details regarding the command line parameters.
 
 This script was also used to test the impact of data augmentation on the model performance, e.g, adding --use_reverse_channel will add the respective channel to the input. 
 
