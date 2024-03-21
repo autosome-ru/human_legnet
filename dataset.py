@@ -24,8 +24,10 @@ class TrainSeqDatasetProb(Dataset):
         ----------
         ds : pd.DataFrame
             Training dataset.
-        use_reverse_channel : bool
+        use_reverse : bool
             If True, additional reverse augmentation is used.
+        use_reverse_channel : bool
+            If True, extra channel indicating reversed sequences is added.
         seqsize : int
             Constant sequence length.
         """
@@ -111,7 +113,7 @@ class TestSeqDatasetProb(Dataset):
         ds : pd.DataFrame
             Training dataset.
         use_reverse_channel : bool
-            If True, additional reverse augmentation is used.
+            If True, extra channel indicating reversed sequences is added.
         seqsize : int
             Constant sequence length.
         """
@@ -135,11 +137,7 @@ class TestSeqDatasetProb(Dataset):
         Output
         ----------
         X: torch.Tensor    
-            Create one-hot encoding tensor with reverse and singleton channels if required.
-        probs: np.ndarray
-            Given a measured expression, we assume that the real expression is normally distributed
-            with mean=`bin` and sd=`shift`. 
-            Resulting `probs` vector contains probabilities that correspond to each class (bin).     
+            Create one-hot encoding tensor with reverse channel if required.   
         bin: float 
             Training expression value
         """
