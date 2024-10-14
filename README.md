@@ -1,7 +1,17 @@
 # Summary
 
-This repository contains the code and instructions for MRPA-LegNet, a variant of LegNet ([Paper](https://doi.org/10.1093/bioinformatics/btad457),
-[Repo](https://github.com/autosome-ru/LegNet/)) specifically optimized for predicting gene expression from human lentiMPRAs (massive parallel reporter assays).
+This repository contains the code and instructions for MRPA-LegNet described in 
+
+**Massively parallel characterization of transcriptional regulatory elements**
+
+*Vikram Agarwal, Fumitaka Inoue, Max Schubach, Dmitry Penzar, Beth K. Martin, 
+Pyaree Mohan Dash, Pia Keukeleire, Zicong Zhang, Ajuni Sohota, Jingjing Zhao, 
+Ilias Georgakopoulos-Soares, William S. Noble, Galip Gürkan Yardimci, 
+Ivan V. Kulakovskiy, Martin Kircher, Jay Shendure, Nadav Ahituv*, [bioRxiv](https://doi.org/10.1101/2023.03.05.531189)
+
+MPRA-LegNet is a variant of LegNet ([Paper](https://doi.org/10.1093/bioinformatics/btad457),
+[Repo](https://github.com/autosome-ru/LegNet/)) specifically optimized for predicting gene expression from human 
+lentiMPRAs (massive parallel reporter assays).
 The model is built and tested using the data obtained with human K562, HepG2, and WTC11 cell lines.
 
 # Installation
