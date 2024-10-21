@@ -52,8 +52,7 @@ In the study, the shift was set to the size of the forward adapter (21 bp).
 
 For convenience, the data used to train the model is available at `datasets/original` dir. 
 Files with name format `<cell_line>.tsv` were used for training and files with name format `<cell_line>_averaged.tsv` were used for accessing model's final performance. 
-
-Pre-trained models as well as the respective experimental data can be downloaded [here](https://zenodo.org/records/8219231).
+Pre-trained models as well as the respective experimental data can be downloaded [here](https://zenodo.org/records/10558183).
 
 ## Demo example
 
